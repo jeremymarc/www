@@ -1,58 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import cloudflareLogo from './assets/Cloudflare_Logo.svg'
-import './App.css'
+import TimeLeft from "./components/TimeLeft";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [name, setName] = useState('unknown')
-
   return (
-    <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-        <a href='https://workers.cloudflare.com/' target='_blank'>
-          <img src={cloudflareLogo} className='logo cloudflare' alt='Cloudflare logo' />
-        </a>
+    <div className="w-full h-screen">
+      <div className="text-4xl left-6 lg:text-8xl top-1/2 absolute lg:left-1/2 lg:top-1/2 transform lg:-translate-x-1/2 lg:-translate-y-1/2">
+        Jeremy Marc
       </div>
-      <h1>Vite + React + Cloudflare</h1>
-      <div className='card'>
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          aria-label='increment'
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-10">
+        <div className="flex flex-col lg:flex-row justify-between">
+          <TimeLeft />
+          <div className="">
+            <div className="">Past Work</div>
+            <div className="">
+              <a
+                href="https://vacationrenter.com"
+                target="_blank"
+                rel="noopener"
+              >
+                VacationRenter
+              </a>{" "}
+              (Co-Founder)
+            </div>
+            <div className="">Speaken (Founder)</div>
+            <div className="">Streamup</div>
+            <div className="">Sweetlabs (Google Venture)</div>
+            <div className="">RemixJobs (Founder)</div>
+          </div>
+        </div>
+        <div className="flex flex-row gap-4 mt-4">
+          <div className="">
+            <a
+              href="https://linkedin.com/in/jeremymarc"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+          </div>
+          <div className="">
+            <a href="https://x.com/jeremymarc" target="_blank" rel="noopener">
+              X
+            </a>
+          </div>
+        </div>
       </div>
-      <div className='card'>
-        <button
-          onClick={() => {
-            fetch('/api/')
-              .then((res) => res.json() as Promise<{ name: string }>)
-              .then((data) => setName(data.name))
-          }}
-          aria-label='get name'
-        >
-          Name from API is: {name}
-        </button>
-        <p>
-          Edit <code>worker/index.ts</code> to change the name
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
